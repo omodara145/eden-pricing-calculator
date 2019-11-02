@@ -10,24 +10,25 @@
             </div>
           </el-col>
         </el-row>
-        <el-form label-position="top">
+        <el-form label-position="top" :model="form">
           <el-row type="flex" :gutter="100">
             <el-col :sm="24" :md="8" class="ec-sub--section">
               <h3>Laundry</h3>
               <div class="ec-form--items">
                 <el-form-item label="Quantity (bag)">
-                  <el-select v-model="form.laundry.quantity" placeholder="">
-                    <el-option label="1" value="1"></el-option>
-                    <el-option label="2" value="2"></el-option>
-                    <el-option label="3" value="3"></el-option>
-                    <el-option label="4" value="4"></el-option>
+                  <el-select v-model="form.laundry.quantity">
+                    <el-option label="1" :value="1"></el-option>
+                    <el-option label="2" :value="2"></el-option>
+                    <el-option label="3" :value="3"></el-option>
+                    <el-option label="4" :value="4"></el-option>
+                    <el-option label="5" :value="5"></el-option>
                   </el-select>
                 </el-form-item>
                 <el-form-item label="Frequency">
-                  <el-select v-model="form.laundry.frequency" placeholder="">
-                    <el-option label="Daily" value="daily"></el-option>
-                    <el-option label="Bi-weekly" value="bi-weekly"></el-option>
+                  <el-select v-model="form.laundry.frequency">
+                    <el-option label="Bi-weekly" value="bi_weekly"></el-option>
                     <el-option label="Weekly" value="weekly"></el-option>
+                    <el-option label="Monthly" value="monthly"></el-option>
                   </el-select>
                 </el-form-item>
               </div>
@@ -36,16 +37,17 @@
               <h3>Home Cleaning</h3>
               <div class="ec-form--items">
                 <el-form-item label="Bedrooms (to estimate home size)">
-                  <el-select v-model="form.homeCleaning.quantity" placeholder="">
-                    <el-option label="1" value="1"></el-option>
-                    <el-option label="2" value="2"></el-option>
-                    <el-option label="3" value="3"></el-option>
-                    <el-option label="4" value="4"></el-option>
+                  <el-select v-model="form.cleaning.rooms">
+                    <el-option label="1" :value="1"></el-option>
+                    <el-option label="2" :value="2"></el-option>
+                    <el-option label="3" :value="3"></el-option>
+                    <el-option label="4" :value="4"></el-option>
+                    <el-option label="5+" :value="5"></el-option>
                   </el-select>
                 </el-form-item>
                 <el-form-item label="Frequency">
-                  <el-select v-model="form.laundry.frequency" placeholder="">
-                    <el-option label="Bi-weekly" value="bi-weekly"></el-option>
+                  <el-select v-model="form.cleaning.frequency">
+                    <el-option label="Bi-weekly" value="bi_weekly"></el-option>
                     <el-option label="Weekly" value="weekly"></el-option>
                     <el-option label="Monthly" value="monthly"></el-option>
                   </el-select>
@@ -55,9 +57,9 @@
             <el-col :sm="24" :md="8" class="ec-sub--section">
               <h3>Meals</h3>
               <el-form-item label="Frequency">
-                <el-select v-model="form.laundry.frequency" placeholder="">
+                <el-select v-model="form.meals.frequency">
                   <el-option label="Daily" value="daily"></el-option>
-                  <el-option label="Bi-weekly" value="bi-weekly"></el-option>
+                  <el-option label="Bi-weekly" value="bi_weekly"></el-option>
                   <el-option label="Weekly" value="weekly"></el-option>
                 </el-select>
               </el-form-item>
@@ -81,21 +83,103 @@
     data() {
       return {
         totalFee: 0,
-        options: ["Daily", "Bi-weekly", "Weekly"],
+        meals: {
+          daily: 75000,
+          bi_weekly: 12600,
+          weekly: 37200
+        },
+        laundry: {
+          bi_weekly: 23000,
+          weekly: 35000,
+          monthly: 12967
+        },
+        cleaning: {
+          bi_weekly: 19000,
+          weekly: 27000,
+          monthly: 10967
+        },
         form: {
           laundry: {
             quantity: "",
             frequency: ""
           },
-          homeCleaning: {
-            quantity: "",
+          cleaning: {
+            rooms: "",
             frequency: ""
           },
           meals: {
-            quantity: "",
             frequency: ""
           }
         }
+      }
+    },
+    watch: {
+      form: {
+        handler() {
+          this.calculateFee();
+        },
+        deep: true
+      }
+    },
+    methods: {
+      calculateLaundry() {
+        let laundryFreq = this.form.laundry.frequency;
+        let laundryQuantity = this.form.laundry.quantity;
+        return (this.laundry[laundryFreq] * laundryQuantity) || 0;
+      },
+      calculateCleaning() {
+        let cleaningFreq = this.form.cleaning.frequency;
+        let cleaningRooms = this.form.cleaning.rooms;
+        let total;
+
+        if (cleaningFreq) {
+          switch (cleaningFreq) {
+            case "weekly":
+              if (cleaningRooms === 3 || cleaningRooms === 4) {
+                total = this.cleaning[cleaningFreq] + 4000
+              } else if (cleaningRooms === 5) {
+                total = this.cleaning[cleaningFreq] + 8000
+              } else {
+                total = this.cleaning[cleaningFreq]
+              }
+              break;
+            case "bi_weekly":
+              if (cleaningRooms === 3 || cleaningRooms === 4) {
+                total = this.cleaning[cleaningFreq] + 2000
+              } else if (cleaningRooms === 5) {
+                total = this.cleaning[cleaningFreq] + 4000
+              } else {
+                total = this.cleaning[cleaningFreq]
+              }
+              break;
+            case "monthly":
+              if (cleaningRooms === 3 || cleaningRooms === 4) {
+                total = this.cleaning[cleaningFreq] + 1000
+              } else if (cleaningRooms === 5) {
+                total = this.cleaning[cleaningFreq] + 2000
+              } else {
+                total = this.cleaning[cleaningFreq]
+              }
+              break;
+            default:
+              return total;
+          }
+        } else {
+          total = 0;
+        }
+
+        return total;
+
+      },
+      calculateMeals() {
+        let mealFreq = this.form.meals.frequency;
+        return this.meals[mealFreq] || 0;
+      },
+      calculateFee() {
+        let cleaning = this.calculateCleaning();
+        let laundry = this.calculateLaundry();
+        let meals = this.calculateMeals();
+        this.totalFee =  laundry + cleaning + meals
       }
     }
   }
