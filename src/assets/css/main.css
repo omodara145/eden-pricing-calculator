@@ -24,7 +24,7 @@ html, body {
   width: 100%;
   padding: 0;
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Cerebri Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,7 +37,7 @@ html, body {
 }
 
 .ec-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: auto;
   padding: 50px;
 }
@@ -60,6 +60,7 @@ html, body {
   font-family: "Cerebri Sans", sans-serif;
   font-weight: 500;
   color: #FF9D00;
+  font-size: 1.05rem;
   text-transform: uppercase;
 }
 
@@ -76,21 +77,21 @@ html, body {
 
 .ec-pill {
   background: rgba(255, 157, 0, 0.2);
-  padding: 15px 20px;
+  padding: 14px 18px;
   border-radius: 4px;
-  min-width: 140px;
+  min-width: 120px;
   text-align: center;
 }
 
 .ec-pill span {
   color: #FF9D00;
   line-height: 1.2;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: "Calibre", sans-serif;
 }
 
 .el-form-item__label {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: "Cerebri Sans", sans-serif;
 }
 
@@ -99,11 +100,11 @@ html, body {
 }
 
 .el-select-dropdown__item {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .el-input__inner {
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Cerebri Sans", sans-serif;
 }
 
@@ -113,7 +114,7 @@ html, body {
   background: #FAFAFA;
   border-radius: 0 4px 4px 0;
   border: 1px solid #a1a1a180;
-  height: 58px;
+  height: 43px;
 }
 .el-input__suffix-inner i {
   font-size: 20px;
@@ -137,7 +138,7 @@ html, body {
 }
 
 .el-button {
-  padding: 18px 30px;
+  padding: 15px 25px;
   font-size: 1rem;
   font-family: "Calibre", sans-serif;
 }
