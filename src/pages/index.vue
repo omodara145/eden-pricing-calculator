@@ -12,43 +12,47 @@
         </el-row>
         <el-form label-position="top">
           <el-row type="flex" :gutter="100">
-            <el-col :md="8" class="ec-sub--section">
+            <el-col :sm="24" :md="8" class="ec-sub--section">
               <h3>Laundry</h3>
-              <el-form-item label="Quantity (bag)">
-                <el-select v-model="form.laundry.quantity" placeholder="">
-                  <el-option label="1" value="1"></el-option>
-                  <el-option label="2" value="2"></el-option>
-                  <el-option label="3" value="3"></el-option>
-                  <el-option label="4" value="4"></el-option>
-                </el-select>
-              </el-form-item>
-              <el-form-item label="Frequency">
-                <el-select v-model="form.laundry.frequency" placeholder="">
-                  <el-option label="Daily" value="daily"></el-option>
-                  <el-option label="Bi-weekly" value="bi-weekly"></el-option>
-                  <el-option label="Weekly" value="weekly"></el-option>
-                </el-select>
-              </el-form-item>
+              <div class="ec-form--items">
+                <el-form-item label="Quantity (bag)">
+                  <el-select v-model="form.laundry.quantity" placeholder="">
+                    <el-option label="1" value="1"></el-option>
+                    <el-option label="2" value="2"></el-option>
+                    <el-option label="3" value="3"></el-option>
+                    <el-option label="4" value="4"></el-option>
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="Frequency">
+                  <el-select v-model="form.laundry.frequency" placeholder="">
+                    <el-option label="Daily" value="daily"></el-option>
+                    <el-option label="Bi-weekly" value="bi-weekly"></el-option>
+                    <el-option label="Weekly" value="weekly"></el-option>
+                  </el-select>
+                </el-form-item>
+              </div>
             </el-col>
-            <el-col :md="8" class="ec-sub--section">
+            <el-col :sm="24" :md="8" class="ec-sub--section">
               <h3>Home Cleaning</h3>
-              <el-form-item label="Bedrooms (to estimate home size)">
-                <el-select v-model="form.homeCleaning.quantity" placeholder="">
-                  <el-option label="1" value="1"></el-option>
-                  <el-option label="2" value="2"></el-option>
-                  <el-option label="3" value="3"></el-option>
-                  <el-option label="4" value="4"></el-option>
-                </el-select>
-              </el-form-item>
-              <el-form-item label="Frequency">
-                <el-select v-model="form.laundry.frequency" placeholder="">
-                  <el-option label="Bi-weekly" value="bi-weekly"></el-option>
-                  <el-option label="Weekly" value="weekly"></el-option>
-                  <el-option label="Monthly" value="monthly"></el-option>
-                </el-select>
-              </el-form-item>
+              <div class="ec-form--items">
+                <el-form-item label="Bedrooms (to estimate home size)">
+                  <el-select v-model="form.homeCleaning.quantity" placeholder="">
+                    <el-option label="1" value="1"></el-option>
+                    <el-option label="2" value="2"></el-option>
+                    <el-option label="3" value="3"></el-option>
+                    <el-option label="4" value="4"></el-option>
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="Frequency">
+                  <el-select v-model="form.laundry.frequency" placeholder="">
+                    <el-option label="Bi-weekly" value="bi-weekly"></el-option>
+                    <el-option label="Weekly" value="weekly"></el-option>
+                    <el-option label="Monthly" value="monthly"></el-option>
+                  </el-select>
+                </el-form-item>
+              </div>
             </el-col>
-            <el-col :md="8" class="ec-sub--section">
+            <el-col :sm="24" :md="8" class="ec-sub--section">
               <h3>Meals</h3>
               <el-form-item label="Frequency">
                 <el-select v-model="form.laundry.frequency" placeholder="">
@@ -64,7 +68,8 @@
     </div>
     <div class="ec-footer">
       <div class="ec-container">
-        <el-button type="primary">Get Started<i class="el-icon-arrow-right"></i></el-button>
+        <el-button type="primary" class="ec-web--button">Get Started<i class="el-icon-arrow-right"></i></el-button>
+        <el-button type="primary" class="ec-mobile--button">Pay NGN {{ totalFee }}</el-button>
       </div>
     </div>
   </div>

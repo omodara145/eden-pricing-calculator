@@ -53,6 +53,7 @@ html, body {
   color: #000;
   line-height: 1.2;
   font-weight: 500;
+  font-size: 2rem;
 }
 
 .ec-sub--section h3 {
@@ -67,6 +68,10 @@ html, body {
   min-height: 100vh;
   width: 100%;
   background: #ffffff;
+}
+
+.ec-body {
+  padding-bottom: 100px;
 }
 
 .ec-pill {
@@ -133,4 +138,8 @@ html, body {
   padding: 18px 30px;
   font-size: 1rem;
   font-family: "Calibre", sans-serif;
+}
+
+.ec-mobile--button {
+  display: none;
 }

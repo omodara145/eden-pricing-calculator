@@ -1,5 +1,37 @@
+@media only screen and (max-width: 1024px) {
+  .el-row {
+    flex-direction: column;
+  }
+  .ec-form--items {
+    display: flex;
+    justify-content: space-between;
+  }
+  .ec-form--items .el-form-item {
+    min-width: 48%;
+  }
+}
+
 @media only screen and (max-width: 768px) {
+  html, body {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 600px){
   .ec-container {
     padding: 20px;
+  }
+  .ec-form--items {
+    flex-direction: column;
+  }
+  .ec-footer .ec-container {
+    justify-content: center;
+  }
+
+  .ec-mobile--button {
+    display: block;
+  }
+  .ec-section .ec-pill, .ec-web--button {
+    display: none;
   }
 }
