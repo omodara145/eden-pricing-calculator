@@ -81,6 +81,9 @@ html, body {
   border-radius: 4px;
   min-width: 120px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .ec-pill span {
@@ -88,6 +91,21 @@ html, body {
   line-height: 1.2;
   font-size: 1.1rem;
   font-family: "Calibre", sans-serif;
+}
+
+.ec-pill span.clear-field {
+  background: #FF9D00;
+  padding: 3px;
+  font-size: 0.7rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  color: #fff;
+  margin-left: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: -4px;
+  display: flex;
 }
 
 .el-form-item__label {
@@ -126,8 +144,9 @@ html, body {
   width: 100%;
   padding: 26px 0;
   bottom: 0;
-  background: black;
+  background: #fff;
   box-sizing: border-box;
+  box-shadow: 0 -2px 70px -20px rgba(0,0,0,0.2);
 }
 
 .ec-footer .ec-container {

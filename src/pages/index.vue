@@ -6,17 +6,17 @@
           <el-col :span="24" class="ec-section">
             <h1>Select & Customize Services</h1>
             <div class="ec-pill">
-              <span>NGN {{ totalFee }}</span>
+              <span>NGN {{ totalFee }} </span>
             </div>
           </el-col>
         </el-row>
-        <el-form label-position="top" :model="form">
+        <el-form label-position="top" :model="form" ref="form">
           <el-row type="flex" :gutter="100">
             <el-col :sm="24" :md="8" class="ec-sub--section">
               <h3>Laundry</h3>
               <div class="ec-form--items">
                 <el-form-item label="Quantity (bag)">
-                  <el-select v-model="form.laundry.quantity">
+                  <el-select v-model="form.laundry.quantity" :clearable="true">
                     <el-option label="1" :value="1"></el-option>
                     <el-option label="2" :value="2"></el-option>
                     <el-option label="3" :value="3"></el-option>
@@ -25,7 +25,7 @@
                   </el-select>
                 </el-form-item>
                 <el-form-item label="Frequency">
-                  <el-select v-model="form.laundry.frequency">
+                  <el-select v-model="form.laundry.frequency" :clearable="true">
                     <el-option label="Bi-weekly" value="bi_weekly"></el-option>
                     <el-option label="Weekly" value="weekly"></el-option>
                     <el-option label="Monthly" value="monthly"></el-option>
@@ -37,7 +37,7 @@
               <h3>Home Cleaning</h3>
               <div class="ec-form--items">
                 <el-form-item label="Bedrooms (to estimate home size)">
-                  <el-select v-model="form.cleaning.rooms">
+                  <el-select v-model="form.cleaning.rooms" :clearable="true">
                     <el-option label="1" :value="1"></el-option>
                     <el-option label="2" :value="2"></el-option>
                     <el-option label="3" :value="3"></el-option>
@@ -46,7 +46,7 @@
                   </el-select>
                 </el-form-item>
                 <el-form-item label="Frequency">
-                  <el-select v-model="form.cleaning.frequency">
+                  <el-select v-model="form.cleaning.frequency" :clearable="true">
                     <el-option label="Bi-weekly" value="bi_weekly"></el-option>
                     <el-option label="Weekly" value="weekly"></el-option>
                     <el-option label="Monthly" value="monthly"></el-option>
@@ -57,7 +57,7 @@
             <el-col :sm="24" :md="8" class="ec-sub--section">
               <h3>Meals</h3>
               <el-form-item label="Frequency">
-                <el-select v-model="form.meals.frequency">
+                <el-select v-model="form.meals.frequency" :clearable="true">
                   <el-option label="Daily" value="daily"></el-option>
                   <el-option label="Bi-weekly" value="bi_weekly"></el-option>
                   <el-option label="Weekly" value="weekly"></el-option>
