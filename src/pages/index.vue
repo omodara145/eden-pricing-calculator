@@ -84,9 +84,9 @@
       return {
         totalFee: 0,
         meals: {
-          daily: 75000,
-          bi_weekly: 18600,
-          weekly: 37200
+          daily: 86000,
+          bi_weekly: 28234,
+          weekly: 48200
         },
         laundry: {
           bi_weekly: 23000,
