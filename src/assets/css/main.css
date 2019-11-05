@@ -93,19 +93,16 @@ html, body {
   font-family: "Calibre", sans-serif;
 }
 
-.ec-pill span.clear-field {
-  background: #FF9D00;
+.clear-field {
+  background: #fafafa;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
   padding: 3px;
-  font-size: 0.7rem;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  color: #fff;
-  margin-left: 10px;
-  font-weight: 600;
+  color: #FF9D00;
   cursor: pointer;
-  margin-top: -4px;
-  display: flex;
 }
 
 .el-form-item__label {

@@ -16,13 +16,19 @@
               <h3>Laundry</h3>
               <div class="ec-form--items">
                 <el-form-item label="Quantity (bag)">
-                  <el-select v-model="form.laundry.quantity" :clearable="true">
+                  <el-select v-model="form.laundry.quantity">
                     <el-option label="1" :value="1"></el-option>
                     <el-option label="2" :value="2"></el-option>
                     <el-option label="3" :value="3"></el-option>
                     <el-option label="4" :value="4"></el-option>
                     <el-option label="5" :value="5"></el-option>
                   </el-select>
+                  <el-tooltip content="Clear selection" placement="right">
+                    <div>
+                      <i v-if="form.laundry.quantity !== ''"
+                         class="clear-field el-icon-circle-close" @click="form.laundry.quantity = ''"></i>
+                    </div>
+                  </el-tooltip>
                 </el-form-item>
                 <el-form-item label="Frequency">
                   <el-select v-model="form.laundry.frequency" :clearable="true">
@@ -30,6 +36,12 @@
                     <el-option label="Weekly" value="weekly"></el-option>
                     <el-option label="Monthly" value="monthly"></el-option>
                   </el-select>
+                  <el-tooltip content="Clear selection" placement="right">
+                    <div>
+                      <i v-if="form.laundry.frequency !== ''"
+                         class="clear-field el-icon-circle-close" @click="form.laundry.frequency = ''"></i>
+                    </div>
+                  </el-tooltip>
                 </el-form-item>
               </div>
             </el-col>
@@ -44,6 +56,12 @@
                     <el-option label="4" :value="4"></el-option>
                     <el-option label="5+" :value="5"></el-option>
                   </el-select>
+                  <el-tooltip content="Clear selection" placement="right">
+                    <div>
+                      <i v-if="form.cleaning.rooms !== ''"
+                         class="clear-field el-icon-circle-close" @click="form.cleaning.rooms = ''"></i>
+                    </div>
+                  </el-tooltip>
                 </el-form-item>
                 <el-form-item label="Frequency">
                   <el-select v-model="form.cleaning.frequency" :clearable="true">
@@ -51,6 +69,12 @@
                     <el-option label="Weekly" value="weekly"></el-option>
                     <el-option label="Monthly" value="monthly"></el-option>
                   </el-select>
+                  <el-tooltip content="Clear selection" placement="right">
+                    <div>
+                      <i v-if="form.cleaning.frequency !== ''"
+                         class="clear-field el-icon-circle-close" @click="form.cleaning.frequency = ''"></i>
+                    </div>
+                  </el-tooltip>
                 </el-form-item>
               </div>
             </el-col>
@@ -62,6 +86,12 @@
                   <el-option label="Bi-weekly" value="bi_weekly"></el-option>
                   <el-option label="Weekly" value="weekly"></el-option>
                 </el-select>
+                <el-tooltip content="Clear selection" placement="right">
+                  <div>
+                    <i v-if="form.meals.frequency !== ''"
+                       class="clear-field el-icon-circle-close" @click="form.meals.frequency = ''"></i>
+                  </div>
+                </el-tooltip>
               </el-form-item>
             </el-col>
           </el-row>
@@ -180,6 +210,9 @@
         let laundry = this.calculateLaundry();
         let meals = this.calculateMeals();
         this.totalFee =  laundry + cleaning + meals
+      },
+      showS() {
+        console.log(event)
       }
     }
   }
